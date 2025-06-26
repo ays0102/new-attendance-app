@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup</title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="signup.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+         /* Basic styling for error messages */
+        .form-group {
+            margin-bottom: 1rem;
+            position: relative;
+        }
+        .error-message {
+            color: #dc3545;
+            font-size: 0.875rem;
+            margin-top: 0.25rem;
+            display: none;
+        }
+        input.error {
+            border-color: #dc3545;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container" id="signup-screen">
+        <div class="auth-container">
+            <div class="auth-card">
+                <div class="logo"><i class="fas fa-calendar-check"></i> AttendEase</div>
+                <h2>Create an account</h2>
+                <p>Enter your details to sign up for this app</p>
+                
+                <form id="signup-form">
+                    <div class="form-group">
+                        <label for="signup-name">Full Name</label>
+                        <input type="text" id="signup-name" placeholder="Your full name" required>
+                        <div class="error-message" id="name-error">Please enter your full name</div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="signup-email">Email</label>
+                        <input type="email" id="signup-email" placeholder="email@domain.com" required>
+                        <div class="error-message" id="email-error">Please enter a valid email address</div>
+                    </div>
+                    
+                    <div class="form-group password-field">
+                        <label for="signup-password">Password</label>
+                        <input type="password" id="signup-password" placeholder="••••••••" required>
+                        <i class="fas fa-eye toggle-password" id="toggle-signup-password"></i>
+                        <div class="error-message" id="password-error">Password must be at least 8 characters</div>
+                    </div>
+                    
+                    <div class="form-group password-field">
+                        <label for="confirm-password">Confirm Password</label>
+                        <input type="password" id="confirm-password" placeholder="••••••••" required>
+                        <i class="fas fa-eye toggle-password" id="toggle-confirm-password"></i>
+                        <div class="error-message" id="confirm-password-error">Passwords don't match</div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="signup-role">I am a</label>
+                        <select id="signup-role" required>
+                            <option value="">Select role</option>
+                            <option value="student">Student</option>
+                            <option value="faculty">Faculty</option>
+                        </select>
+                        <div class="error-message" id="role-error">Please select your role</div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>
+                            <input type="checkbox" id="terms-checkbox" required> 
+                            By clicking continue, you agree to our <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>
+                        </label>
+                        <div class="error-message" id="terms-error">You must agree to the terms</div>
+                    </div>
+                    
+                    <button type="submit" class="btn" id="signup-btn">
+                        <i class="fas fa-user-plus"></i> Continue
+                    </button>
+                </form>
+                
+                <div class="auth-footer">
+                    Already have an account? <a href="signin.html">Sign in</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="signup.js"></script>
+</body>
+</html>
