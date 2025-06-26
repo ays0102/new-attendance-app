@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CT Marks Portal</title>
+    <link rel="stylesheet" href="ct-marks.css">
+</head>
+
+<body>
+    <div class="navbar">
+        <div class="navbar-brand">
+            <h1>CT Marks Portal</h1>
+        </div>
+        <div class="navbar-links">
+            <p>
+                Academic Year: <span id="academicYear">2024</span>
+            </p>
+        </div>
+    </div>
+
+    <div class="container">
+        <div id="formSection">
+            <h2>Enter CT Marks</h2>
+            
+            <button id="addStudentsButton" onclick="showAddStudentsForm()">
+                Add Students
+            </button>
+            <button id="addClassButton" onclick="showAddClassForm()">
+                Add Class
+            </button>
+
+            <div style="margin: 20px 0;">
+                <label for="classSelector">Class:</label>
+                <select id="classSelector" required onchange="loadStudentsWithCTMarks()">
+                    <option value="">Select a Class</option>
+                </select>
+            </div>
+
+            <div id="marksEntrySection">
+                <table id="marksTable">
+                    <thead>
+                        <tr>
+                            <th>Roll No</th>
+                            <th>Student Name</th>
+                            <th>CT 1</th>
+                            <th>CT 2</th>
+                            <th>CT 3</th>
+                            <th>CT 4</th>
+                            <th class="total-column">Total</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="marksTableBody">
+                        <!-- Students and their CT marks will be populated here -->
+                    </tbody>
+                </table>
+                
+                <button onclick="saveAllMarks()" style="margin-top: 15px;">
+                    Save All Marks
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Students Popup -->
+    <div id="addStudentsPopup" class="popup">
+        <h2>Add Students</h2>
+        <label for="studentsClass">Class:</label>
+        <select id="studentsClass" required>
+            <option value="">Select Class</option>
+        </select>
+        
+        <label>Add by:</label>
+        <div style="margin: 10px 0;">
+            <input type="radio" id="addByRange" name="addMethod" value="range" checked>
+            <label for="addByRange">Roll Number Range</label>
+            
+            <input type="radio" id="addByList" name="addMethod" value="list" style="margin-left: 15px;">
+            <label for="addByList">Specific Roll Numbers</label>
+        </div>
+        
+        <div id="rangeMethod">
+            <label>Roll Number Range:</label>
+            <div class="range-inputs">
+                <input type="number" id="startRoll" min="1" placeholder="Start" required>
+                <span>to</span>
+                <input type="number" id="endRoll" min="1" placeholder="End" required>
+            </div>
+        </div>
+        
+        <div id="listMethod" style="display: none;">
+            <label for="rollNumbers">Enter Roll Numbers (comma separated):</label>
+            <input type="text" id="rollNumbers" placeholder="e.g., 101, 102, 105">
+        </div>
+        
+        <label for="namePrefix">Name Prefix (optional):</label>
+        <input type="text" id="namePrefix" placeholder="e.g., Student">
+
+        <div class="popup-buttons">
+            <button onclick="addStudents()">Add Students</button>
+            <button onclick="closePopup()">Cancel</button>
+        </div>
+    </div>
+
+    <!-- Add Class Popup -->
+    <div id="addClassPopup" class="popup">
+        <h2>Add Class</h2>
+        <label for="newClassName">Class Name:</label>
+        <input type="text" id="newClassName" required>
+        
+        <label for="newClassSection">Section:</label>
+        <input type="text" id="newClassSection">
+        
+        <label for="newClassSubject">Subject:</label>
+        <input type="text" id="newClassSubject">
+
+        <div class="popup-buttons">
+            <button onclick="addClass()">Submit</button>
+            <button onclick="closePopup()">Cancel</button>
+        </div>
+    </div>
+
+    <!-- Edit Marks Popup -->
+    <div id="editMarksPopup" class="popup">
+        <h2>Edit CT Marks</h2>
+        <p id="editStudentInfo">Student: John Doe (Roll: 101)</p>
+        
+        <div style="margin-bottom: 15px;">
+            <label for="editCT1">CT 1:</label>
+            <input type="number" id="editCT1" min="0" max="20">
+            
+            <label for="editCT2">CT 2:</label>
+            <input type="number" id="editCT2" min="0" max="20">
+            
+            <label for="editCT3">CT 3:</label>
+            <input type="number" id="editCT3" min="0" max="20">
+            
+            <label for="editCT4">CT 4:</label>
+            <input type="number" id="editCT4" min="0" max="20">
+        </div>
+        
+        <div class="popup-buttons">
+            <button onclick="saveEditedMarks()">Save</button>
+            <button onclick="closePopup()">Cancel</button>
+        </div>
+    </div>
+
+    <!-- Overlay for popups -->
+    <div id="overlay" class="overlay"></div>
+
+    <script src="ct-marks.js"></script>
+</body>
+
+</html>
