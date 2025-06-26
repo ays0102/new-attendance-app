@@ -404,3 +404,10 @@
                 showStudentsList();
             }
         });
+
+
+// Redirect to dashboard page
+function goToDashboard() {
+    // Replace with your actual dashboard URL
+    window.location.href = "dashboard.html"; 
+}
