@@ -9,21 +9,12 @@
 </head>
 
 <body>
-    <div class="navbar">
-        <div class="navbar-brand">
-            <h1>CT Marks Portal</h1>
-        </div>
-        <div class="navbar-links">
-            <p>
-                Academic Year: <span id="academicYear">2024</span>
-            </p>
-        </div>
-    </div>
-
     <div class="container">
         <div id="formSection">
             <h2>Enter CT Marks</h2>
-            
+            <button id="backButton" class="btn-secondary" onclick="goToDashboard()">
+            <i class="fas fa-arrow-left"></i> Back to Dashboard
+            </button>
             <button id="addStudentsButton" onclick="showAddStudentsForm()">
                 Add Students
             </button>
