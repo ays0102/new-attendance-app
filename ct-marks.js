@@ -337,3 +337,10 @@ function closePopup() {
     });
     document.getElementById('overlay').classList.remove('active-overlay');
 }
+
+
+// Redirect to dashboard page
+function goToDashboard() {
+    // Replace with your actual dashboard URL
+    window.location.href = "dashboard.html"; 
+}
