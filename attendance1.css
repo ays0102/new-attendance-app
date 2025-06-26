@@ -275,3 +275,16 @@
         .date-picker {
             margin-bottom: 1rem;
         }
+
+        /* Back button styling */
+#backButton {
+    background-color: #95a5a6;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+#backButton:hover {
+    background-color: #7f8c8d;
+}
